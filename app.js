@@ -3,15 +3,22 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+app.set('view engine', 'ejs');
 
-app.get('/',(req,res)=>{
-    const blog = { id: 1, title: "Blog title", description: "Blog description" }
-    res.send(blog)
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-app.listen(port,(req,res)=>{
-    console.log(`Sunucu ${port} portunda başlatıldı.`);
+app.get('/about', (req, res) => {
+  res.render('about');
 });
 
+app.get('/add', (req, res) => {
+  res.render('add');
+});
 
-
+app.listen(port, (req, res) => {
+  console.log(`Sunucu ${port} portunda başlatıldı.`);
+});
