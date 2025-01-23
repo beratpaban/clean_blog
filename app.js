@@ -30,11 +30,18 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
+app.get('/posts/:id', async (req, res) => {
+  const posts = await Posts.findById(req.params.id);
+  res.render('posts', {
+    posts,
+  });
+});
+
 app.get('/add', (req, res) => {
   res.render('add');
 });
 
-app.post('/posty', async (req, res) => {
+app.post('/posts', async (req, res) => {
   await Posts.create(req.body);
   res.redirect('/');
 });
