@@ -23,11 +23,7 @@
           <main>
             <div class="row mb-5 pb-4">
               <div class="col-12">
-                <img
-                  src="img/video-detail-1.jpg"
-                  alt="Image"
-                  class="img-fluid tm-catalog-item-img"
-                />
+                <img src="<%= posts.image %>" alt="Image" class="img-fluid tm-catalog-item-img">
               </div>
             </div>
             <div class="row mb-5 pb-5">
@@ -50,14 +46,16 @@
                     <button
                       class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"
                     >
-                      <span>Update Details</span>
+                    <a href="/posts/edit/<%= posts._id %>" class="btn btn-primary p-0 mb-4 tm-btn-animate tm-btn-download tm-icon-download"><span>Update Details</span></a>	
                     </button>
                   </div>
                   <div class="text-center">
                     <button
                       class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download"
                     >
-                      <span>Delete Post</span>
+                    <a href="/posts/<%= posts._id %>?_method=DELETE" class="btn btn-danger p-0 tm-btn-animate tm-btn-download tm-icon-download"
+                      onclick="return confirm('Are you sure?')"
+                      ><span>Delete Post</span></a>	
                     </button>
                   </div>
                 </div>
